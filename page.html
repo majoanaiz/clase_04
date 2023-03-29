@@ -25,10 +25,10 @@
                 var title = select("header");
                 createElement("h1", "Aceptaste dibujar a " + palabra_pasada).parent(title);
                 var descarga = select("#descargar");
-                descarga.mousePressed(EstaNoEs);
+                descarga.mousePressed(descarga);
                 var borra = select("#borrar");
-                borra.mousePressed(EstaNoEs);
-                elColor = createColorPicker("#000000").parent("controles");
+                borra.mousePressed(borra);
+                elColor = createColorPicker("#222333").parent("controles");
                 elSlider = createSlider(1, 5, 3).parent("controles");
                 createCanvas(windowWidth, windowHeight).position(0, 0).style("z-index", -1);
                 background("#ddd");
@@ -38,19 +38,19 @@
                 stroke(elColor.color());
                 strokeWeight(elSlider.value());
                 if (mouseIsPressed) {
-                    //aquí falta algo
+                    line(pmouseX, pmouseY, mouseX, mouseY);
                 }
             }
 
             function descargador() {
-                saveCanvas(palabra_pasada, "jpg");
+                saveCanvas("mi_digimon", "jpg");
             }
 
             function borrador() {
-                //aquí también falta algo
+                background("#eceff1");
             }
 
-            function EstaNoEs(){
+            function artemania(){
                 select("h1").html("Esta no es la función para tal mousePressed");
                 background(random(0,255),random(0,255),random(0,255));
             }

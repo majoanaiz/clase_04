@@ -10,10 +10,10 @@
     <body>
         <header></header>
         <footer>
-            <div><a href="index.html">◀️  volver</a></div>
+            <div><a href="index.html">◀️ volver</a></div>
             <div id="controles"></div>
-            <div><a href="#" id="descargar">🗳️  descargar</a></div>
-            <div><a href="#" id="borrar">🗑️  borrar todo</a></div>
+            <div><a href="#" id="descargar">🗳️ descargar</a></div>
+            <div><a href="#" id="borrar">🗑️ borrar todo</a></div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
@@ -25,10 +25,10 @@
                 var title = select("header");
                 createElement("h1", "Aceptaste dibujar a " + palabra_pasada).parent(title);
                 var descarga = select("#descargar");
-                descarga.mousePressed(descarga);
+                descarga.mousePressed(EstaNoEs);
                 var borra = select("#borrar");
-                borra.mousePressed(borra);
-                elColor = createColorPicker("#222333").parent("controles");
+                borra.mousePressed(EstaNoEs);
+                elColor = createColorPicker("#000000").parent("controles");
                 elSlider = createSlider(1, 5, 3).parent("controles");
                 createCanvas(windowWidth, windowHeight).position(0, 0).style("z-index", -1);
                 background("#ddd");
@@ -38,19 +38,19 @@
                 stroke(elColor.color());
                 strokeWeight(elSlider.value());
                 if (mouseIsPressed) {
-                    line(pmouseX, pmouseY, mouseX, mouseY);
+                    //aquí falta algo
                 }
             }
 
             function descargador() {
-                saveCanvas("mi_digimon", "jpg");
+                saveCanvas(palabra_pasada, "jpg");
             }
 
             function borrador() {
-                background("#eceff1");
+                line(pmouseX, pmouseY, mouseX, mouseY);
             }
 
-            function artemania(){
+            function EstaNoEs(){
                 select("h1").html("Esta no es la función para tal mousePressed");
                 background(random(0,255),random(0,255),random(0,255));
             }

@@ -9,8 +9,8 @@
     </head>
     <body>
         <main>
-            <h1>¿Quieres dibujar a <span id="Koromon"></span>?</h1>
-            <p>Siendo las <span id="time"></span> hrs., te desafío a dibujar a este digimon de nivel <span id="In Training"></span> en la <span id="next"></span>.</p>
+            <h1>¿Quieres dibujar a <span id="title"></span>?</h1>
+            <p>Siendo las <span id="time"></span> hrs., te desafío a dibujar a este digimon de nivel <span id="level"></span> en la <span id="next"></span>.</p>
             <p>¡Pero tienes que dibujarlo de memoria! Una vez aceptes el desafío, no podrás volver a verlo.</p>
             <p id="accept"></p>
         </main>
@@ -30,9 +30,9 @@
                 datosArreglados = Object.values(datos);
                 //Yo revisaría cómo se usa la siguiente x en la línea 36 
                 x = Math.floor(random(0, (datosArreglados.length)-1));
-                select("#title").html("Koromon");
+                select("#title").html("NombreDelDigimon");
                 select("#time").html(lasHoras + ":" + losMinutos);
-                select("#level").html("In Training");
+                select("#level").html("NivelDelDigimon");
                 var elAside = select("aside");
                 createImg(datosArreglados[x].img).parent(elAside).style("width", "100%");
                 createA("page.html?data=" + "NombreDelDigimon", "siguiente página").parent("next");
